@@ -44,13 +44,42 @@ header nav {
   gap: 1.6rem;
 }
 
+header form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
 .input-wrapper input {
   width: 100%;
+
+  padding: 1.2rem 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+
+  background-color: var(--color-base-green-400);
+  color: var(--color-base-white);
+
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-base-white);
 }
 
 #avatar {
   width: 4.2rem;
   height: 4.2rem;
+
+  border-radius: 50%;
 }
 
 main {
@@ -64,9 +93,20 @@ main > img {
   width: 105%;
 
   margin-bottom: 3.2rem;
+  transition: all 0.8s ease-in-out;
 }
 
-.container {
+main > img:hover {
+  filter: hue-rotate(10deg) contrast(102%) saturate(200%);
+  transform: scale(1.1);
+}
+
+/* .container {
+  margin-inline: 2.4rem;
+} */
+
+section,
+aside {
   margin-inline: 2.4rem;
 }
 
@@ -94,6 +134,12 @@ main h1 {
 
   padding: 1.2rem 1.2rem 0.8rem;
   border-radius: 50%;
+
+  transition: 0.8s ease-in-out;
+}
+
+.like-dislike-btn:hover {
+  opacity: 0.6;
 }
 
 main p {
@@ -128,14 +174,31 @@ aside {
   overflow-y: hidden;
 }
 
-.article img {
-  aspect-ratio: 16/9;
-  object-fit: cover;
+.article .img-container {
+  width: 15rem;
+  height: 8.4rem;
 
+  border-radius: 0.6rem;
   align-self: flex-start;
   grid-area: a;
 
+  overflow: hidden;
+}
+
+.article img {
+  width: 95%;
+
+  aspect-ratio: 16/9;
+  object-fit: cover;
+
   border-radius: 0.6rem;
+
+  transition: all 0.8s linear;
+}
+
+.article img:hover {
+  filter: hue-rotate(7deg) contrast(102%) saturate(200%);
+  transform: scale(1.1);
 }
 
 .article h3 {
@@ -160,4 +223,88 @@ footer {
   padding: 1.6rem;
   font-weight: 600;
   line-height: normal;
+}
+
+/* Animations */
+header {
+  --startY: -100%;
+  --startX: 0%;
+  animation: entrance 0.8s;
+}
+
+footer {
+  --startY: 100%;
+  --startX: 0%;
+  animation: entrance 0.8s;
+}
+
+main {
+  --startY: 0%;
+  --startX: -100%;
+  animation: entrance 0.8s;
+}
+
+#avatar {
+  animation: avatar 1s ease-out;
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translate(var(--startX), var(--startY));
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes avatar {
+  from {
+    transform: scale(2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Media queries */
+
+@media (min-width: 1250px) {
+  main {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-areas:
+      "a c"
+      "b c";
+    gap: 0 7.6rem;
+    padding: 4.4rem 5.6rem;
+  }
+
+  main > img {
+    grid-area: a;
+
+    margin-left:2.4rem;
+    border-radius: 1rem;
+  }
+
+  main > img:hover {
+    transform: scale(1.01);
+  }
+
+  main > img,
+  section {
+    width: 70rem;
+  }
+
+  section {
+    grid-area: b;
+  }
+
+  aside {
+    grid-area: c;
+    align-self: flex-start;
+
+    width: 38rem;
+  }
 }
