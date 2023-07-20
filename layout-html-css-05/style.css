@@ -38,10 +38,22 @@ header {
 
   display: grid;
   text-align: center;
+
+  animation: entrance 0.6s;
+  --startY: -100%;
 }
 
 header img {
   margin: 3.2rem auto;
+}
+
+img {
+  transition: 0.4s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.1);
+  filter: hue-rotate(9deg) contrast(101%) saturate(200%);
 }
 
 header h1 {
@@ -87,6 +99,9 @@ main {
   display: grid;
   gap: 3.2rem;
   grid-template-rows: repeat(4, max-content);
+
+  animation: entrance 0.6s;
+  --startY: 100%;
 }
 
 main img {
@@ -115,6 +130,13 @@ h3 {
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;
+
+  transition: 0.6s ease-in-out;
+}
+
+h3:hover {
+  opacity: 0.8;
+  filter: brightness(80%);
 }
 
 .inactive {
@@ -131,8 +153,30 @@ footer {
   padding-block: 2rem;
 
   text-align: center;
+
+  animation: entrance 0.6s 0.2s backwards;
+  --startY: 100%;
 }
 
+/* animations */
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--startY));
+  }
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes main-entrance {
+}
+
+/* media queries */
 @media (min-width: 1000px) {
   body {
     height: 100vh;
