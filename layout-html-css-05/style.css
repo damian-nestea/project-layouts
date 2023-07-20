@@ -45,15 +45,20 @@ header img {
 }
 
 header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: var(--bg-logo);
   color: var(--fc-logo);
 
-  font-size: 4rem;
+  height: 4.8rem;
+
+  font-size: clamp(3.6rem, 2rem + 2vw, 4.8rem);
   font-weight: 400;
   line-height: 3.4rem;
   letter-spacing: 2px;
 
-  padding-block: 0.8rem;
   margin-bottom: 3rem;
 }
 
@@ -112,14 +117,97 @@ h3 {
   right: 1.6rem;
 }
 
+.inactive {
+  display: none;
+}
+
 footer {
   color: var(--fc-tags);
   font-family: var(--ff-description);
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 0.7rem + 1vw, 1.8rem);
   font-weight: 400;
   line-height: 2.8rem;
 
-  padding: 3.2rem;
+  padding-block: 2rem;
 
   text-align: center;
+}
+
+@media (min-width: 1000px) {
+  body {
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 38rem 1fr;
+    grid-template-areas:
+      "a b"
+      "a c";
+  }
+
+  header {
+    align-content: start;
+
+    grid-area: a;
+  }
+
+  header h1 {
+    height: 7rem;
+  }
+
+  header p {
+    background-color: var(--bg-header);
+  }
+
+  main {
+    max-width: 60rem;
+
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    grid-area: b;
+
+    grid-template-areas:
+      "a b"
+      "d b"
+      "d c";
+  }
+  main div:nth-child(1) {
+    grid-area: a;
+  }
+  main div:nth-child(2) {
+    grid-area: b;
+  }
+  main div:nth-child(3) {
+    grid-area: c;
+  }
+  main div:nth-child(4) {
+    grid-area: d;
+  }
+  footer {
+    grid-area: c;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    max-width: 90rem;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, max-content);
+    grid-template-areas:
+      "a b e"
+      "d b f"
+      "d c f";
+  }
+
+  main div:nth-child(5),
+  main div:nth-child(6) {
+    display: block;
+  }
+  main div:nth-child(5) {
+    grid-area: e;
+  }
+  main div:nth-child(6) {
+    grid-area: f;
+  }
 }
