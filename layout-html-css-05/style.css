@@ -35,17 +35,35 @@ h3 {
 
 header {
   background-color: var(--bg-header);
+
+  display: grid;
+  text-align: center;
+}
+
+header img {
+  margin: 3.2rem auto;
 }
 
 header h1 {
   background-color: var(--bg-logo);
   color: var(--fc-logo);
 
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 2px;
+
+  padding-block: 0.8rem;
   margin-bottom: 3rem;
 }
 
 p {
+  padding: 3rem 3.6rem 0;
+
   font-family: var(--ff-description);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 3rem;
 
   color: var(--fc-description);
 }
@@ -55,6 +73,53 @@ main {
   background-color: var(--bg-primary);
 }
 
+main {
+  margin: 3.2rem auto;
+  padding-inline: 4rem;
+
+  max-width: 40rem;
+
+  display: grid;
+  gap: 3.2rem;
+  grid-template-rows: repeat(4, max-content);
+}
+
+main img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card {
+  position: relative;
+
+  width: 100%;
+}
+
 h3 {
   color: var(--fc-tags);
+  background-color: var(--bg-primary);
+
+  padding-inline: 2.4rem;
+  border-radius: 2rem;
+
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 3.4rem; /* 170% */
+  letter-spacing: 1px;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+}
+
+footer {
+  color: var(--fc-tags);
+  font-family: var(--ff-description);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+
+  padding: 3.2rem;
+
+  text-align: center;
 }
