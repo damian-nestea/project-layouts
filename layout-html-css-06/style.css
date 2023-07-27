@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -26,10 +29,18 @@ header {
   display: grid;
 
   padding-inline: 3.2rem;
+
+  --startY: -100%;
+  --startX: 0%;
+  animation: entrance 0.4s ease-in-out;
 }
 
 #header-astronaut-img {
   width: 100%;
+}
+
+img:hover {
+  filter: hue-rotate(9deg) contrast(101%) saturate(200%);
 }
 
 h1,
@@ -60,6 +71,16 @@ header > p {
 
 #arrow-icon {
   margin: 0 auto 6rem;
+
+  --startY: 300%;
+  --startX: 0%;
+  animation: entrance 0.6s 0.4s ease-in-out backwards,
+    entrance-icon 0.6s 0.4s ease-in-out backwards;
+  transition: 0.6s ease-in-out;
+}
+
+#arrow-icon:hover {
+  transform: translateY(30%);
 }
 
 main {
@@ -77,10 +98,25 @@ main {
 
   padding: 2.8rem;
   border-radius: 2rem;
+
+  --startX: -100%;
+  --startY: 0%;
+  animation: entrance 0.6s 0.4s ease-in-out backwards;
+  transition: 0.6s ease-out;
+}
+
+.card:hover {
+  opacity: 0.8;
 }
 
 .card > img {
   margin-bottom: 2.6rem;
+
+  transition: 0.6s ease-in-out;
+}
+
+.card img:hover {
+  transform: scale(1.1);
 }
 
 .card > h2 {
@@ -96,6 +132,10 @@ main {
 
 form {
   padding: 6rem 4rem;
+
+  --startX: 100%;
+  --startY: 0%;
+  animation: entrance 0.6s 0.4s ease-in-out backwards;
 }
 
 form fieldset {
@@ -138,13 +178,25 @@ form legend {
   line-height: 100%;
 }
 
+fieldset > .input-wrapper:nth-child(2) input {
+  background: url("./assets/person-icon.png") no-repeat scroll 8px 9px;
+}
+
+fieldset > .input-wrapper:nth-child(3) input {
+  background: url("./assets/at-icon.svg") no-repeat scroll 8px 10px;
+}
+
+.input-wrapper input {
+  padding-left: 4rem;
+}
+
 .input-wrapper textarea {
   min-height: 17rem;
 }
 
 button {
   margin-top: 2.4rem;
-  padding:1rem 1.6rem;
+  padding: 1rem 1.6rem;
   border: none;
   border-radius: 1.6rem;
 
@@ -155,6 +207,13 @@ button {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 2.4rem;
+
+  transition: 0.6s eas;
+}
+
+button:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
 }
 
 footer {
@@ -167,4 +226,31 @@ footer {
   line-height: normal;
 
   padding: 1.6rem;
+
+  --startX: 0%;
+  --startY: 100%;
+  animation: entrance 0.6s 0.4s ease-in-out backwards;
+}
+
+/* animations */
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translate(var(--startX), var(--startY));
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes entrance-icon {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.2);
+  }
 }
