@@ -9,7 +9,7 @@
   font-family: "Mulish", sans-serif;
 
   --hue: 320;
-  --white-: hsl(var(--hue), 0%, 100%);
+  --white: hsl(var(--hue), 0%, 100%);
   --bg-header: hsl(var(--hue) + 45, 47%, 97%);
   --primary-color: hsl(244, 38%, 28%);
   --fc-headings: hsl(var(--hue), 69%, 42%);
@@ -73,7 +73,7 @@ main {
 }
 
 .card {
-  background-color: var(--white-);
+  background-color: var(--white);
 
   padding: 2.8rem;
   border-radius: 2rem;
@@ -92,4 +92,79 @@ main {
 .card > p {
   font-weight: 600;
   line-height: normal;
+}
+
+form {
+  padding: 6rem 4rem;
+}
+
+form fieldset {
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+form legend {
+  font-size: 3.2rem;
+
+  margin-bottom: 3.6rem;
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+
+  padding: 1.2rem;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 1.6rem;
+
+  color: var(--primary-color);
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.input-wrapper textarea {
+  min-height: 17rem;
+}
+
+button {
+  margin-top: 2.4rem;
+  padding:1rem 1.6rem;
+  border: none;
+  border-radius: 1.6rem;
+
+  background-color: var(--primary-color);
+  color: var(--white);
+
+  font-family: "Mulish", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: normal;
+
+  padding: 1.6rem;
 }
