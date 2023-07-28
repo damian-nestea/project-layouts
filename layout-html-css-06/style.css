@@ -35,11 +35,21 @@ header {
   animation: entrance 0.4s ease-in-out;
 }
 
-#header-astronaut-img {
+#img-mobile {
   width: 100%;
+  max-width: 40rem;
+
+  margin: 0 auto;
+  transition: 0.6s ease-in-out;
 }
 
-img:hover {
+#img-desktop {
+  display: none;
+  transition: 0.6s ease-in-out;
+}
+
+img:hover,
+footer:hover {
   filter: hue-rotate(9deg) contrast(101%) saturate(200%);
 }
 
@@ -52,7 +62,7 @@ legend {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 1.8rem + 2vw, 6rem);
 
   margin: 1.6rem 0 0.8rem;
 }
@@ -77,6 +87,8 @@ header > p {
   animation: entrance 0.6s 0.4s ease-in-out backwards,
     entrance-icon 0.6s 0.4s ease-in-out backwards;
   transition: 0.6s ease-in-out;
+
+  cursor: pointer;
 }
 
 #arrow-icon:hover {
@@ -152,6 +164,10 @@ form legend {
   margin-bottom: 3.6rem;
 }
 
+form img {
+  display: none;
+}
+
 .input-wrapper {
   width: 100%;
 }
@@ -208,12 +224,16 @@ button {
   font-weight: 700;
   line-height: 2.4rem;
 
-  transition: 0.6s eas;
+  transition: 0.6s ease-in-out;
+
+  cursor: pointer;
 }
 
 button:hover {
-  transform: scale(1.1);
   opacity: 0.7;
+  border: 1px solid var(--primary-color);
+  background-color: var(--white);
+  color: var(--primary-color);
 }
 
 footer {
@@ -230,6 +250,7 @@ footer {
   --startX: 0%;
   --startY: 100%;
   animation: entrance 0.6s 0.4s ease-in-out backwards;
+  transition: 0.6s ease-in-out;
 }
 
 /* animations */
@@ -252,5 +273,100 @@ footer {
   }
   50% {
     transform: scale(0.2);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (min-width: 800px) {
+  header {
+    grid-template-rows: 1fr 10rem max-content;
+    grid-template-areas:
+      "a b"
+      "c b"
+      "d b";
+    justify-items: center;
+
+    margin-bottom: 6rem;
+  }
+
+  #img-mobile {
+    display: none;
+  }
+
+  #img-desktop {
+    display: block;
+
+    width: 90%;
+    max-width: 55rem;
+
+    grid-area: b;
+  }
+
+  h1 {
+    align-self: end;
+    grid-area: a;
+  }
+
+  header > p {
+    grid-area: c;
+  }
+
+  #arrow-icon {
+    grid-area: d;
+  }
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9rem;
+  }
+
+  .card {
+    width: 30rem;
+    --delay: 1s;
+    animation: appear 1s var(--delay) ease-in-out backwards;
+  }
+
+  form {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1350px) {
+  main {
+    justify-content: space-between;
+    gap: 3rem;
+
+    padding-inline: 12rem;
+  }
+
+  .card {
+    width: 35rem;
+  }
+
+  form {
+    max-width: 100%;
+    background: url("./assets/bg-stars.svg") no-repeat right;
+  }
+
+  form fieldset {
+    max-width: 60rem;
+  }
+
+  form fieldset,
+  form button {
+    margin-left: 8rem;
   }
 }
