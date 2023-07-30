@@ -23,6 +23,9 @@ body {
 
   display: grid;
   place-items: center;
+
+  animation: gradient 10s ease infinite;
+  background-size: 200% 200%;
 }
 
 main {
@@ -75,6 +78,7 @@ h3 {
   margin-bottom: 5rem;
 
   transition: all 0.8s ease-in-out;
+  animation: entrance-message 1.5s ease-out;
 }
 
 img {
@@ -122,12 +126,27 @@ button:hover {
 
 @keyframes entrance {
   0% {
-    opacity: 1;
+    opacity: 0.5;
     transform: scale(0);
   }
   70% {
+    opacity: 0.8;
+    transform: scale(0);
+  }
+  100% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1);
+  }
+}
+
+@keyframes entrance-message {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 0.8;
+    transform: scale(0.2) translateY(600%);
   }
   100% {
     opacity: 1;
@@ -144,5 +163,17 @@ button:hover {
   }
   70% {
     transform: translate(2%, 1%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
