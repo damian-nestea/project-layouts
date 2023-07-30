@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --hue: 240;
+  --white: hsl(var(--hue), 0%, 100%);
+  --fc-primary: hsl(var(--hue), 27%, 28%);
+  --bg-message: hsl(var(--hue), 32%, 92%);
+  --bg-button: hsl(35, 100%, 50%);
+}
+
+body {
+  background: linear-gradient(45deg, #190361 0%, #b0f 100%);
+
+  height: 100vh;
+
+  font-size: 1.5rem;
+
+  display: grid;
+  place-items: center;
+
+  animation: gradient 10s ease infinite;
+  background-size: 200% 200%;
+}
+
+main {
+  background-color: var(--white);
+  color: var(--fc-primary);
+
+  width: min(45rem, 85%);
+
+  padding: 4.8rem 5rem 6.4rem;
+
+  border-radius: 0.6rem;
+  box-shadow: 20px 20px 50px 0px rgba(0, 0, 0, 0.8);
+
+  text-align: center;
+
+  animation: entrance 0.6s ease-in-out both;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: normal;
+
+  margin-bottom: 1.6rem;
+}
+
+p {
+  line-height: normal;
+
+  margin-bottom: 3rem;
+}
+
+p,
+button {
+  font-family: "DM Sans", sans-serif;
+}
+
+h3 {
+  background-color: var(--bg-message);
+
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: normal;
+
+  text-align: center;
+
+  padding: 1rem;
+  margin-bottom: 5rem;
+
+  transition: all 0.8s ease-in-out;
+  animation: entrance-message 1.5s ease-out;
+}
+
+img {
+  width: 90%;
+  transition: all 0.8s ease-in-out;
+}
+
+img:hover,
+h3:hover {
+  filter: hue-rotate(9deg) contrast(101%) saturate(150%);
+  transform: scale(1.1);
+}
+
+#cookieToOpen {
+  cursor: pointer;
+}
+
+#cookieToOpen:hover {
+  animation: moveCookie 0.15s ease-in-out infinite;
+}
+
+button {
+  background-color: var(--bg-button);
+  color: var(--white);
+
+  margin-top: 5rem;
+  padding: 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+
+  font-weight: 700;
+  line-height: normal;
+
+  cursor: pointer;
+  transition: 0.6s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 0.8;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes entrance-message {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 0.8;
+    transform: scale(0.2) translateY(600%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveCookie {
+  0% {
+    transform: translate(-2%, -2%);
+  }
+  35% {
+    transform: translate(-1%, 2%);
+  }
+  70% {
+    transform: translate(2%, 1%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
