@@ -7,6 +7,7 @@ const button = document.querySelector("button");
 
 cookieImage.addEventListener("click", handleOpenCookie);
 button.addEventListener("click", resetCookie);
+document.addEventListener("keydown", resetByEnter);
 
 function handleOpenCookie(event) {
   event.preventDefault();
@@ -18,6 +19,13 @@ function resetCookie(event) {
   event.preventDefault();
   title.innerText = "Qual é a sua sorte de hoje?";
   toggleHide();
+}
+
+function resetByEnter(event) {
+  if (event.key === "Enter" && !button.classList.contains("hide")) {
+    title.innerText = "Qual é a sua sorte de hoje?";
+    toggleHide();
+  }
 }
 
 function toggleHide() {
