@@ -31,7 +31,7 @@ main {
 
   width: min(45rem, 85%);
 
-  padding: 4.8rem 6.4rem 6.4rem;
+  padding: 4.8rem 5rem 6.4rem;
 
   border-radius: 0.6rem;
   box-shadow: 20px 20px 50px 0px rgba(0, 0, 0, 0.8);
@@ -73,6 +73,18 @@ h3 {
   margin-bottom: 5rem;
 }
 
+img {
+  width: 90%;
+}
+
+#cookieToOpen {
+  cursor: pointer;
+}
+
+#cookieToOpen:hover {
+  animation: moveCookie 0.15s ease-in-out infinite;
+}
+
 button {
   background-color: var(--bg-button);
   color: var(--white);
@@ -90,4 +102,16 @@ button {
 
 .hide {
   display: none;
+}
+
+@keyframes moveCookie {
+  0% {
+    transform: translate(-2%, -2%);
+  }
+  35% {
+    transform: translate(-1%, 2%);
+  }
+  70% {
+    transform: translate(2%, 1%);
+  }
 }
