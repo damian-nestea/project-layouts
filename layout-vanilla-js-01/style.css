@@ -4,6 +4,90 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 62.5%;
+
+  --hue: 240;
+  --white: hsl(var(--hue), 0%, 100%);
+  --fc-primary: hsl(var(--hue), 27%, 28%);
+  --bg-message: hsl(var(--hue), 32%, 92%);
+  --bg-button: hsl(35, 100%, 50%);
+}
+
+body {
+  background: linear-gradient(45deg, #190361 0%, #b0f 100%);
+
+  height: 100vh;
+
+  font-size: 1.5rem;
+
+  display: grid;
+  place-items: center;
+}
+
+main {
+  background-color: var(--white);
+  color: var(--fc-primary);
+
+  width: min(45rem, 85%);
+
+  padding: 4.8rem 6.4rem 6.4rem;
+
+  border-radius: 0.6rem;
+  box-shadow: 20px 20px 50px 0px rgba(0, 0, 0, 0.8);
+
+  text-align: center;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: normal;
+
+  margin-bottom: 1.6rem;
+}
+
+p {
+  line-height: normal;
+
+  margin-bottom: 3rem;
+}
+
+p,
+button {
+  font-family: "DM Sans", sans-serif;
+}
+
+h3 {
+  background-color: var(--bg-message);
+
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: normal;
+
+  text-align: center;
+
+  padding: 1rem;
+  margin-bottom: 5rem;
+}
+
+button {
+  background-color: var(--bg-button);
+  color: var(--white);
+
+  margin-top: 5rem;
+  padding: 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+
+  font-weight: 700;
+  line-height: normal;
+
+  cursor: pointer;
+}
+
 .hide {
   display: none;
 }
